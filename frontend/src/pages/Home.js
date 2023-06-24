@@ -1,19 +1,23 @@
 import React from 'react'
 
 import './home.css'
-import home_bg from '../assets/home_bg.png'
+// import home_bg from '../assets/home_bg.png'
+import banner from '../assets/banner-removebg-preview.png'
 import PatientDetails from '../components/PatientDetails'
+import Navbar from '../components/Navbar'
 const Home = () => {
   return (
+    <body>
+    <Navbar />
     <div className="firstheader">
     <figure className="second">
-    <img className='' src={home_bg} alt="home-page"/>
+    <img className='' src={banner} alt="home-page"/>
      <h1 className="third"> 
-        <span className='capitalize'>
+        <span className="fourth-a">
         Welcome to Care Connect Portal
         <br />
         <br />
-        <span className="fourth"> DevelopHers</span>
+        <span className="fourth-b"> DevelopHers</span>
         <br />
         <br/>
         <div className="fifth">
@@ -27,6 +31,7 @@ const Home = () => {
      </h1>
     </figure>
     </div>
+    </body>
   )
 }
 

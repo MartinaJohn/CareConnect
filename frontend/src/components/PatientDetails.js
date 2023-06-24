@@ -1,6 +1,8 @@
 import React,{useState} from 'react'
 import { createRoot } from 'react-dom'
 import { PlusOutlined } from '@ant-design/icons'
+//import css file
+import './PatientDetails.css'
 import {
     Button,
     Cascader,
@@ -28,7 +30,8 @@ const normFile = (e) => {
 
 const PatientDetails=()=>{
     return(
-        <Form
+      <body>        
+      <Form
       labelCol={{
         span: 4,
       }}
@@ -40,22 +43,23 @@ const PatientDetails=()=>{
         maxWidth: 600,
       }}
     >
-      <Form.Item label="Checkbox" name="disabled" valuePropName="checked">
+      {/* <Form.Item label="Checkbox" name="disabled" valuePropName="checked">
         <Checkbox>Checkbox</Checkbox>
-      </Form.Item>
-      <Form.Item label="Radio">
-        <Radio.Group>
-          <Radio value="apple"> Apple </Radio>
-          <Radio value="pear"> Pear </Radio>
-        </Radio.Group>
-      </Form.Item>
-      <Form.Item label="Input">
+      </Form.Item> */}
+      
+      <Form.Item label="Input" className='first'>
         <Input />
       </Form.Item>
       <Form.Item label="Select">
         <Select>
           <Select.Option value="demo">Demo</Select.Option>
         </Select>
+      </Form.Item>
+      <Form.Item label="Gender">
+        <Radio.Group>
+          <Radio value="Male"> Male </Radio>
+          <Radio value="Female"> Female </Radio>
+        </Radio.Group>
       </Form.Item>
       <Form.Item label="TreeSelect">
         <TreeSelect
@@ -101,9 +105,7 @@ const PatientDetails=()=>{
       <Form.Item label="TextArea">
         <TextArea rows={4} />
       </Form.Item>
-      <Form.Item label="Switch" valuePropName="checked">
-        <Switch />
-      </Form.Item>
+      
       <Form.Item label="Upload" valuePropName="fileList" getValueFromEvent={normFile}>
         <Upload action="/upload.do" listType="picture-card">
           <div>
@@ -122,6 +124,8 @@ const PatientDetails=()=>{
         <Button>Button</Button>
       </Form.Item>
     </Form>
+    </body>
+
     )
 }
 export default PatientDetails
