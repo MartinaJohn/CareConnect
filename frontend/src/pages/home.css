@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+body{
+  font-family: 'Poppins', sans-serif;
+
+  
+}
+.heading{
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+}
+.firstdiv {
+    text-align: center;
+    background-color: white;
+    color: #333333;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    padding-left: 6px;
+    padding-right: 6px;
+    font-weight: 500;
+  }
+  .second {
+    display: flex;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .second {
+      padding: 0;
+    }
+  }
+  
+  .dark .second {
+    background-color: #333333;
+  }
+  .third {
+    font-size: 2.5rem;
+    
+    font-weight:bolder;
+    letter-spacing: -0.05em;
+    margin-bottom: 0;
+    margin-top: 5rem;
+    margin-left: 18rem;
+  }
+  
+  @media (min-width: 768px) {
+    .third {
+      font-size: 3rem;
+    }
+  }
+  .fourth-a{
+    color:#8817b9;
+  }
+  .fourth-b {
+    text-transform: uppercase;
+    color: #3182ce;
+    font-family: 'Poppins',sans-serif;
+  }
+  .fifth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .sixth {
+    display: inline-block;
+    padding: 0.625rem 1.5rem;
+    background-color: white;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #3182ce;
+    border-radius: 5px;
+    border: 2px solid rgb(72, 72, 210);
+    font-family: 'Poppins';
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); */
+  }
+  
+  .sixth:hover {
+    
+    border-radius: 45px;
+  }
+  .seventh {
+    display: inline-block;
+    padding: 0.625rem 1.5rem;
+    border: 1px solid #3182ce;
+    color: #3182ce;
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    border-radius: 9999px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    background-color: transparent;
+  }
+  
+  .seventh:hover {
+    background-color: #4c8ed9;
+    color: #ffffff;
+  }
+              
