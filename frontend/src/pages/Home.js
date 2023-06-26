@@ -4,6 +4,8 @@ import './home.css'
 // import home_bg from '../assets/home_bg.png'
 import banner from '../assets/banner-removebg-preview.png'
 import Navbar from '../components/Navbar'
+import Login from '../components/Login'
+import { Link } from 'react-router-dom'
 const Home = () => {
   return (
     <body>
@@ -20,9 +22,10 @@ const Home = () => {
         <br />
         <br/>
         <div className="fifth">
+        <a href='/login'>
         <button type='button' className="sixth" >Login</button>
-        
-        {/* <button type='button' className="seventh">Upload Details</button> */}
+        </a>
+         {/* <button type='button' className="seventh">Upload Details</button> */}
         
         </div>
         </span>
