@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+.body{
+    font-family: 'Poppins',sans-serif;
+}
+.title{
+    font-family: 'Poppins',sans-serif;
+    align-items: center;
+    color: blueviolet;
+}
+.first{
+    font-family: 'Poppins',sans-serif;
+}
+
+.sixth {
+    display: inline-block;
+    padding: 0.625rem 1.5rem;
+    background-color: white;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #3182ce;
+    border-radius: 5px;
+    border: 2px solid rgb(72, 72, 210);
+    font-family: 'Poppins';
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); */
+  }
+  input{
+    padding: 10px;
+    border-radius: 4px;
+    border-color: #fff;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-family:'Poppins';
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #ddd;
+    box-shadow: 4px 4px 7px rgba(0,0,0,0.05);
+    outline: 0;
+    
+  }
+  form button{
+    font-family: 'Poppins';
+    background: #fcf5f5;
+    border: none;
+    color: #6b1da7;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: cubic-bezier();
+  }
+
+  form{
+    padding: 2px;
+    box-sizing: unset;
+    border: #1aac83;
+    justify-content: baseline;
+    
+  }
+  
+  label, input{
+    display: block;
+  }
