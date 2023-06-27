@@ -6,8 +6,6 @@ import { useMutation } from "react-query";
 import { login } from "../store/user.slice";
 import { useDispatch } from "react-redux";
 
-const { Option } = Select;
-
 export default function Register() {
     const dispatch = useDispatch();
     let navigate = useNavigate();
