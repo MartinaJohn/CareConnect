@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card, Form, Input, Select, message } from "antd";
+import { Button, Card, Form, Input, message } from "antd";
 import { useNavigate } from "react-router-dom";
 import { SignUp } from "../services/auth.service";
 import { useMutation } from "react-query";

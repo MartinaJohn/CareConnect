@@ -14,25 +14,36 @@ export default function Login(){
   const dispatch = useDispatch();
 
   const finishMutation = useMutation(SignIn, {
-    onSuccess: (data) => {
-      message.success("Successfully Logged In!");
-      console.log(data);
-      dispatch(login(data));
-      navigate("/details", { replace:true})
-    },
-    onError: (e) => {
-      message.error("Login Failed");
-      // message.error(e.response.data.message);
+    onError: (error) => {
+      if (error.response && error.response.status === 401) {
+        //const errorMessage = error.response.data.message;
+        const errorMessage = "Invalid email or password" || error.response.data.message;
+        console.log('Login failed: Invalid email or password');
+        message.error(`${errorMessage}`);
+      } else {
+        console.error('An error occurred during login:', error);
+        message.error('An error occurred during login');
+      }
+      console.log(error.response); // Log the entire response object
     },
   });
 
   const onFinish = async (values) => {
-    console.log(values);
-    const data = {
-      email: values.email,
-      password: values.password,
-    };
-    await finishMutation.mutateAsync(data);
+    try {
+      console.log(values);
+      const data = {
+        email: values.email,
+        password: values.password,
+      };
+      await finishMutation.mutateAsync(data);
+      message.success("Successfully Logged In!");
+      console.log(data);
+      dispatch(login(data));
+      navigate("/details", { replace: true });
+    } catch (error) {
+      console.error('An error occurred during login:', error);
+     // message.error('An error occurred during login');
+    }
   };
 
   return (
