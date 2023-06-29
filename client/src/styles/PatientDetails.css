@@ -2,7 +2,9 @@
 
 .body{
     font-family: 'Poppins',sans-serif;
+    margin: 20px;
 }
+
 .title{
     font-family: 'Poppins',sans-serif;
     align-items: center;
