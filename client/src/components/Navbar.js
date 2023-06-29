@@ -1,12 +1,13 @@
 import React from 'react'
 import '../styles/Navbar.css'
 import { Link } from 'react-router-dom'
+
 const Navbar = () => {
- 
     return (
         <nav className="navigation">
+        
         <Link to="/" className="brand-name">
-        CARE CONNECT🏥
+        CareConnect
         </Link>
          
           <div

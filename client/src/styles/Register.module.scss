@@ -1,0 +1,42 @@
+.containerController {
+    height: 85vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    .loginImg{
+        width:37rem;
+        @media (max-width: 768px) {
+            width: 100%;
+            margin-right: 0;
+            margin-bottom: 2rem;
+        }
+    }
+    .card {
+      width: 23rem;
+      margin-left: 2rem;
+      margin-right: 2rem;
+      box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      h1 {
+        font-size: 1.6rem;
+        font-weight: 600;
+      }
+      h2 {
+        font-size: 1rem;
+  
+        color: #8c8c8c;
+        span {
+          color: #1b76ff;
+        }
+      }
+      .loginButton {
+        border-radius: 8px;
+        width: 20rem;
+
+        @media (max-width: 768px) {
+            width: 100%;
+        }
+      }
+    }
+  }

@@ -5,6 +5,9 @@ import { SignUp } from "../services/auth.service";
 import { useMutation } from "react-query";
 import { login } from "../store/user.slice";
 import { useDispatch } from "react-redux";
+import styles from "../styles/Register.module.scss"
+import loginImg from "../assets/login.jpg"
+import Navbar from "../components/Navbar"
 
 export default function Register() {
     const dispatch = useDispatch();
@@ -33,8 +36,12 @@ export default function Register() {
     };
 
     return (
-        <div>
-            <Card>
+        <div className={styles.regContainer}>
+        <Navbar/>
+        <div className={styles.containerController}>
+        <img src={loginImg} alt="login" className={styles.loginImg}/>
+        <Card className={styles.card}>
+            <h1>Sign Up!</h1>
             <Form name="register-form" onFinish={onFinish}>
             <Form.Item
               name="name"
@@ -72,6 +79,7 @@ export default function Register() {
             <Button
               type="primary"
               htmlType="submit"
+              className={styles.loginButton}
               // loading={loading}
               // disabled={loading}
             >
@@ -79,6 +87,7 @@ export default function Register() {
             </Button>            
             </Form>
             </Card>
+        </div>
         </div>
     )
     
