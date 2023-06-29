@@ -34,6 +34,55 @@ const normFile = (e) => {
 };
 
 const PatientDetails=()=>{
+        const[detailsForm,setDetailsForm]=useState({
+          dob:'',
+          gender:'',
+          maritalstatus:'',
+          address:'',
+          state:'',
+          phone:'',
+          zip:'',
+          pcp:'',
+          insurancename:'',
+          validity:'',
+          insurancetype:'',
+          relation:'',
+          
+            //IMAGE AND DOC URL TO BE ADDED
+        })
+        //function to submit details
+        const SubmitDetails=async(e)=>{
+          const{dob,gender,maritalstatus,address,state,phone,zip,pcp,insurancename,validity,insurancetype,relation}=detailsForm
+          e.preventDefault();
+          try {
+      //add the url for the backend route
+              console.log(address)
+              console.log(gender)
+            //WORKS
+              // let result = await fetch(``, {
+              //   method: "post",
+              //   body: JSON.stringify({ dob,gender,maritalstatus,address,state,phone,zip,pcp,insurancename,validity,insurancetype,relation }),
+              //   headers: {
+              //     "Content-Type": "application/json",
+              //     'Accept': 'application/json'
+              //   },
+              // })
+              // result = await result.json();
+              // if (result) {
+              //   message.success("Submitted successfully")
+              //   window.location('/')
+              // } else {
+              //   message.error("Something went wrong");
+              // }
+
+            } catch (e) {
+              console.log(e)
+            }
+        }
+
+        const handleInput=(e)=>{
+          setDetailsForm({...detailsForm,[e.target.name]:e.target.value})
+        }
           // IPFS
         const apiToken =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweEIzQjE2NEJjMzM3MTFBMmQyQTEyYzIwYkE2MjA3YjIzQWExQTY0NzEiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2Nzg4OTM2MDg0MzEsIm5hbWUiOiJpcGZzX2RvY3MifQ.wXK5hTOg_J3rgNGKf5Rw0D6keTv7KjfJq1ZbsTpTxyQ";
@@ -57,11 +106,11 @@ const PatientDetails=()=>{
         file = rootCid;
         // console.log(typeof file, file);
         };
-
+        
 
         //IPFS ends
 
-
+        
     return(
       <body>     
       <div className="title">
@@ -78,32 +127,33 @@ const PatientDetails=()=>{
       style={{
         maxWidth: 600,
       }}
+     
     >
       {/* <Form.Item label="Checkbox" name="disabled" valuePropName="checked">
         <Checkbox>Checkbox</Checkbox>
       </Form.Item> */}
       
-      <Form.Item label="Name" className='first' required="true">
-        <Input />
+      <Form.Item label="Name" className='first' required="true" >
+        <Input name="name" onChange={handleInput}/>
       </Form.Item>
 
-      <Form.Item label="Email" className='first' required="true" >
-        <Input type='email'/>
+      <Form.Item label="Email" className='first' required="true"  >
+        <Input type='email' name="email"/>
       </Form.Item>
 
-      <Form.Item label="Date of Birth" required='true'>
-        <DatePicker />
+      <Form.Item label="Date of Birth" required='true' >
+        <DatePicker/>
       </Form.Item>
 
-      <Form.Item label="Gender">
+      <Form.Item label="Gender" >
         <Radio.Group>
-          <Radio value="Male"> Male </Radio>
-          <Radio value="Female"> Female </Radio>
-          <Radio value="Other">Other</Radio>
+          <Radio value="Male" name="gender" onChange={handleInput}> Male </Radio>
+          <Radio value="Female" name="gender" onChange={handleInput}> Female </Radio>
+          <Radio value="Other" name="gender" onChange={handleInput}>Other</Radio>
         </Radio.Group>
       </Form.Item>
 
-      <Form.Item label="Marital Status" >
+      <Form.Item label="Marital Status" name="maritalstatus">
         <Radio.Group>
           <Radio value="S">S</Radio>
           <Radio value="M">M</Radio>
@@ -112,118 +162,70 @@ const PatientDetails=()=>{
         </Radio.Group>
       </Form.Item>
       
-      <Form.Item label="Address" className='first' required="true">
-        <Input />
-      </Form.Item>
-
-      <Form.Item label="City" className='first' required="true">
-        <Input />
+      <Form.Item label="Address" className='first' required="true" >
+        <Input name="address" onChange={handleInput}/>
       </Form.Item>
 
       <Form.Item label="State" className='first' required="true">
-        <Input />
+        <Input  name="state" onChange={handleInput}/>
       </Form.Item>
 
       <Form.Item label="Zip" className='first' required="true">
-        <Input type='number'/>
+        <Input type='number'  name="zip" onChange={handleInput}/>
       </Form.Item>
 
-      <Form.Item label="Phone" className='first' required="true">
-        <Input type='number'/>
+      <Form.Item label="Phone" className='first' required="true" >
+        <Input type='number'name="phone" onChange={handleInput}/>
       </Form.Item>
 
-      <Form.Item label="Emergency Contact" className='first' required="true">
-        <Input type='number'/>
+      <Form.Item label="Emergency Contact" className='first' required="true" >
+        <Input type='number' name="contact" onChange={handleInput}/>
       </Form.Item>
-
+{/* 
       <Form.Item label="Do you have a PCP- Primary Care Physician">
         <Radio.Group>
           <Radio value='Yes'>Y</Radio>
           <Radio value='No'>N</Radio>
         </Radio.Group>
-      </Form.Item>
+      </Form.Item> */}
 
-      <Form.Item label="Did you PCP refer to urgent care?">
+      <Form.Item label="Did you PCP refer to urgent care?" >
         <Radio.Group>
-          <Radio value='Yes'>Y</Radio>
-          <Radio value='No'>N</Radio>
+          <Radio value='Yes' name="didpcp">Y</Radio>
+          <Radio value='No' name="didpcp">N</Radio>
         </Radio.Group>
       </Form.Item>
 
-      <div className="title">
+      <div className="title" >
         <h2>Insurance Details</h2>
       </div> 
-      <Form.Item label="Insurance Type">
+      <Form.Item label="Insurance Type" >
         <Select>
-          <Select.Option value="Health Insurance"></Select.Option>
-          <Select.Option value="Life Insurance"></Select.Option>
+          <Select.Option value="Health Insurance" name="insurancetype" onChange={handleInput}></Select.Option>
+          <Select.Option value="Life Insurance" name="insurancetype" onChange={handleInput}></Select.Option>
 
         </Select>
       </Form.Item>
-      
-      <Form.Item label="Subscriber Name" className='first' required="true">
-        <Input />
-      </Form.Item>
-
-      <Form.Item label="Subscriber DOB">
+      {/* <Form.Item label="Subscriber DOB">
         <DatePicker />
-      </Form.Item>
+      </Form.Item> */}
 
       <Form.Item label="Insurance Name" className='first' required="true">
-        <Input />
+        <Input  name="insurancename"/>
       </Form.Item>
       
-     <Form.Item label="Insurance Validity">
-      <RangePicker/>
+     <Form.Item label="Insurance Validity" >
+      <DatePicker name="validity" onChange={handleInput}/>
      </Form.Item>
 
        <Form.Item label="Relation to Patient">
         <Radio.Group>
-          <Radio value='Self'>Self</Radio>
-          <Radio value='Child'>Child</Radio>
-          <Radio value='Spouce'>Spouce</Radio>
+          <Radio value='Self'  name="relation" onChange={handleInput}>Self</Radio>
+          <Radio value='Child'  name="relation" onChange={handleInput}>Child</Radio>
+          <Radio value='Spouse'  name="relation" onChange={handleInput}>Spouse</Radio>
         </Radio.Group>
       </Form.Item>
 
-      <Form.Item label="Policy">
-        <Input />
-      </Form.Item>
-
-       <Form.Item label="Group">
-        <Input />
-       </Form.Item>
-
-       {/* <Form.Item label="Upload Photo" valuePropName="fileList" getValueFromEvent={normFile}>
-        <Upload action="/upload.do" listType="picture-card">
-          <div>
-            <PlusOutlined />
-            <div
-              style={{
-                marginTop: 8,
-              }}
-            >
-              Select
-            </div>
-          </div>
-        </Upload>
-        <button className='sixth' onClick={handleUpload}>Upload</button>
-      </Form.Item>
-
-      <Form.Item label="Upload Medical Documents" valuePropName="fileList" getValueFromEvent={normFile}>
-        <Upload listType="picture-card">
-          <div>
-            <PlusOutlined />
-            <div name="file"
-              style={{
-                marginTop: 8,
-              }}
-            >
-              Select
-            </div>
-          </div>
-        </Upload>
-        <button className='sixth' onClick={handleUpload}>Upload</button>
-      </Form.Item> */}
       
           <h2 className='title'>Records</h2>
           {/* Working but need to make it beautiful https://ant.design/components/upload */}
@@ -232,7 +234,7 @@ const PatientDetails=()=>{
             <div>
           
           <label for="file">Upload Image</label>
-              <input type="file" id="input" name="file" multiple />
+              <input type="file" id="input" name="image" multiple />
             </div>
             <Button onClick={handleUpload}>Upload document</Button>
           </section>
@@ -242,7 +244,7 @@ const PatientDetails=()=>{
           <section>
         <div>       
           <label for="file">Upload Medical Document</label>
-              <input type="file" id="input" name="file" multiple />
+              <input type="file" id="input" name="medicaldoc" multiple />
             </div>
             <Button onClick={handleUpload}>Upload document</Button>
           </section>
@@ -256,7 +258,7 @@ const PatientDetails=()=>{
 
         <br></br>
       <Form.Item>
-        <Button>Submit</Button>
+        <Button onClick={SubmitDetails}>Submit</Button>
       </Form.Item>
     </Form>
     </body>
