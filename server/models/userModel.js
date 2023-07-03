@@ -19,7 +19,41 @@ const userSchema = new mongoose.Schema(
         role: {
             type:String,
             default:"user",
-        },       
+        },
+        dateOfBirth: {
+            type: Date,
+            required: true
+        },
+        gender: {
+            type: String,
+            enum: ['Male', 'Female', 'Other']
+        },
+        address: {
+            type: String,
+            required: true
+        },
+        state: {
+            type: String,
+            required: true
+        },
+        zip: {
+            type: Number,
+            required: true
+        },
+        phone: {
+            type: Number,
+            required: true
+        },
+        emergencyContact: {
+            type: String,
+            required: true
+        },
+        image: {
+            type: String
+        },
+        medicalDoc: {
+            type: String
+        }               
     }
 )
 
