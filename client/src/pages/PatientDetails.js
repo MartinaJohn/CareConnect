@@ -58,6 +58,7 @@ const PatientDetails=()=>{
       //add the url for the backend route
               console.log(address)
               console.log(gender)
+              console.log(phone)
             //WORKS
               // let result = await fetch(``, {
               //   method: "post",
