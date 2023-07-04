@@ -2,6 +2,8 @@ import React,{useState} from 'react'
 import { createRoot } from 'react-dom'
 import { PlusOutlined } from '@ant-design/icons'
 import { Web3Storage } from "web3.storage";
+import Navbar from "../components/Navbar"
+import { Steps } from 'antd';
 //import css file
 import '../styles/PatientDetails.css'
 import {
@@ -113,16 +115,18 @@ const PatientDetails=()=>{
 
         
     return(
-      <body>     
+      <body> 
+      <Navbar />  
+      <div className="details-form"> 
       <div className="title">
         <h2>Patient details</h2>
       </div>   
       <Form
       labelCol={{
-        span: 4,
+        span: 10,
       }}
       wrapperCol={{
-        span: 14,
+        span: 35,
       }}
       layout="horizontal"
       style={{
@@ -135,7 +139,7 @@ const PatientDetails=()=>{
       </Form.Item> */}
       
       <Form.Item label="Name" className='first' required="true" >
-        <Input name="name" onChange={handleInput}/>
+        <Input name="name"/>
       </Form.Item>
 
       <Form.Item label="Email" className='first' required="true"  >
@@ -148,39 +152,39 @@ const PatientDetails=()=>{
 
       <Form.Item label="Gender" >
         <Radio.Group>
-          <Radio value="Male" name="gender" onChange={handleInput}> Male </Radio>
-          <Radio value="Female" name="gender" onChange={handleInput}> Female </Radio>
-          <Radio value="Other" name="gender" onChange={handleInput}>Other</Radio>
+          <Radio value="Male" name="gender"> Male </Radio>
+          <Radio value="Female" name="gender"> Female </Radio>
+          <Radio value="Other" name="gender">Other</Radio>
         </Radio.Group>
       </Form.Item>
 
-      <Form.Item label="Marital Status" name="maritalstatus">
+      {/* <Form.Item label="Marital Status" name="maritalstatus">
         <Radio.Group>
           <Radio value="S">S</Radio>
           <Radio value="M">M</Radio>
           <Radio value="D">D</Radio>
           <Radio value="W">W</Radio>
         </Radio.Group>
-      </Form.Item>
+      </Form.Item> */}
       
       <Form.Item label="Address" className='first' required="true" >
-        <Input name="address" onChange={handleInput}/>
+        <Input name="address" />
       </Form.Item>
 
       <Form.Item label="State" className='first' required="true">
-        <Input  name="state" onChange={handleInput}/>
+        <Input  name="state" />
       </Form.Item>
 
       <Form.Item label="Zip" className='first' required="true">
-        <Input type='number'  name="zip" onChange={handleInput}/>
+        <Input type='number'  name="zip"/>
       </Form.Item>
 
       <Form.Item label="Phone" className='first' required="true" >
-        <Input type='number'name="phone" onChange={handleInput}/>
+        <Input type='number'name="phone"/>
       </Form.Item>
 
       <Form.Item label="Emergency Contact" className='first' required="true" >
-        <Input type='number' name="contact" onChange={handleInput}/>
+        <Input type='tel' name="contact"/>
       </Form.Item>
 {/* 
       <Form.Item label="Do you have a PCP- Primary Care Physician">
@@ -190,14 +194,14 @@ const PatientDetails=()=>{
         </Radio.Group>
       </Form.Item> */}
 
-      <Form.Item label="Did you PCP refer to urgent care?" >
+      {/* <Form.Item label="Did you PCP refer to urgent care?" >
         <Radio.Group>
           <Radio value='Yes' name="didpcp">Y</Radio>
           <Radio value='No' name="didpcp">N</Radio>
         </Radio.Group>
-      </Form.Item>
+      </Form.Item> */}
 
-      <div className="title" >
+      {/* <div className="title" >
         <h2>Insurance Details</h2>
       </div> 
       <Form.Item label="Insurance Type" >
@@ -206,12 +210,12 @@ const PatientDetails=()=>{
           <Select.Option value="Life Insurance" name="insurancetype" onChange={handleInput}></Select.Option>
 
         </Select>
-      </Form.Item>
+      </Form.Item> */}
       {/* <Form.Item label="Subscriber DOB">
         <DatePicker />
       </Form.Item> */}
 
-      <Form.Item label="Insurance Name" className='first' required="true">
+      {/* <Form.Item label="Insurance Name" className='first' required="true">
         <Input  name="insurancename"/>
       </Form.Item>
       
@@ -225,7 +229,7 @@ const PatientDetails=()=>{
           <Radio value='Child'  name="relation" onChange={handleInput}>Child</Radio>
           <Radio value='Spouse'  name="relation" onChange={handleInput}>Spouse</Radio>
         </Radio.Group>
-      </Form.Item>
+      </Form.Item> */}
 
       
           <h2 className='title'>Records</h2>
@@ -234,20 +238,20 @@ const PatientDetails=()=>{
           <section>
             <div>
           
-          <label for="file">Upload Image</label>
+          <label for="file">Upload Your Photo</label>
               <input type="file" id="input" name="image" multiple />
             </div>
-            <Button onClick={handleUpload}>Upload document</Button>
+            <Button>Upload document</Button>
           </section>
           </Form.Item>
           
           <Form.Item>
           <section>
         <div>       
-          <label for="file">Upload Medical Document</label>
+          <label for="file">Upload Medical Document(if any)</label>
               <input type="file" id="input" name="medicaldoc" multiple />
             </div>
-            <Button onClick={handleUpload}>Upload document</Button>
+            <Button>Upload document</Button>
           </section>
           </Form.Item>
           {/* <section className="patient__records">
@@ -259,9 +263,10 @@ const PatientDetails=()=>{
 
         <br></br>
       <Form.Item>
-        <Button onClick={SubmitDetails}>Submit</Button>
+        <Button className='btn'>Submit</Button>
       </Form.Item>
     </Form>
+    </div> 
     </body>
 
     )

@@ -5,7 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { SignIn } from "../services/auth.service";
 import { login } from "../store/user.slice";
-
+import styles from "../styles/Register.module.scss"
+import loginImg from "../assets/login.jpg"
+import Navbar from "../components/Navbar"
 
 export default function Login(){
   // const info = useSelector((state) => state.user);
@@ -47,8 +49,15 @@ export default function Login(){
   };
 
   return (
-    <div>
-        <Card>
+    <div className={styles.regContainer}>
+    <Navbar />
+    <div className={styles.containerController}>
+    <img src={loginImg} alt="login" className={styles.loginImg}/>
+    <Card className={styles.card}>
+          <h1>Login to CareConnect</h1>
+          <h2>
+            Don't have an account? <a href="/register">Sign Up</a>
+          </h2>    
           <Form
             name="register-form"
             initialValues={{ remember: true }}
@@ -80,6 +89,7 @@ export default function Login(){
             <Button
               type="primary"
               htmlType="submit"
+              className={styles.loginButton}
               // loading={loading}
               // disabled={loading}
             >
@@ -87,6 +97,7 @@ export default function Login(){
             </Button>
           </Form>
         </Card>
+    </div>
     </div>
   )
 }

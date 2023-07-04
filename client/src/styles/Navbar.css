@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 .navigation{
     font-family: 'Poppins',sans-serif;
     height: 60px;
@@ -9,41 +9,51 @@
     padding: 0.5rem 0rem;
     background-color: #fff;
     color: black;
-    box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
+    box-shadow: 0 2px 2px 2px rgba(57, 57, 57, 0.23);
+    font-weight: 600;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      height: auto;
+      padding: 1rem 0.5rem;
+    }
 }
 
-/* .brand-name{
-    text-decoration: none;
-    color:#8817b9;
-    font-size: 1.3rem;
-    margin-left: 1rem;
-}
-.navigation-menu{
-    margin-left: auto;
-} */
 .brand-name {
     text-decoration: none;
-    color: rgb(111, 11, 210);
+    color: #1b76ff;
     font-size: 1.3rem;
     margin-left: 1rem;
     font-family: 'Poppins',sans-serif;
-    font-weight:bold;
+    font-weight:700;
   }
   .navigation-menu {
     margin-left: auto;
+    @media (max-width: 768px) {
+      margin-left: 0;
+      margin-top: 1rem;
+    }
   }
 .navigation-menu ul {
     display: flex;
     padding: 0;
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
   }
   .navigation-menu li {
     /* // removes default disc bullet for li tags and applies margin to left & right side */
     list-style-type: none;
     margin: 0 1rem;
+    @media (max-width: 768px) {
+      margin: 0.5rem 0;
+    }
   }
   .navigation-menu li a {
     /* // increases the surface area of the anchor tag to span more than just the anchor text */
     text-decoration: none;
     display: block;
     width: 100%;
+    
+
   }
