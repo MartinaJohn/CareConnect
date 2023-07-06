@@ -84,47 +84,5 @@ router.post("/logout", function (req, res, next) {
   });
 });
 
-// Details route
-// router.post("/details", passport.authenticate('local'), async (req, res) => {
-//   // const { address, zip } = req.body;
-
-//   // try {
-//   //   // Find the logged-in user
-//   //   const user = await User.findById(req.user.id);
-
-//   //   // Update user details
-//   //   user.name = req.user.name;
-//   //   user.email = req.user.email;
-//   //   // user.password = req.user.password; // Note: This assumes you are updating the password as well
-
-//   //   user.address = address;
-//   //   user.zip = zip;
-
-//   //   // Save the updated user
-//   //   await user.save();
-
-//   //   res.status(200).json({ message: 'User details updated successfully' });
-//   // } catch (error) {
-//   //   res.status(500).json({ message: 'An error occurred' });
-//   // }
-//   // Get the address and zipCode from the request body
-//   const { address, zip } = req.body;
-
-//   // Access the logged-in user object from req.user
-//   const loggedInUser = req.user;
-
-//   // Update the address and zip code for the logged-in user
-//   loggedInUser.address = address;
-//   loggedInUser.zip = zip;
-
-//   // Save the updated user object
-//   loggedInUser.save((err) => {
-//     if (err) {
-//       return res.status(500).json({ message: "An error occurred" });
-//     }
-//     return res.json({ message: "User details updated successfully", user: loggedInUser });
-//   });
-// });
-
 
 module.exports = router;
