@@ -62,29 +62,24 @@ body{
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-  }
-  .sixth {
-    display: inline-block;
-    padding: 0.625rem 1.5rem;
-    background-color: white;
-    color: #ffffff;
-    font-weight: 500;
-    font-size: 1.25rem;
-    line-height: 1.2;
-    text-transform: uppercase;
-    color: #3182ce;
-    border-radius: 5px;
-    border: 2px solid rgb(72, 72, 210);
-    font-family: 'Poppins';
-    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); */
+    color:#3182ce;
   }
   
+  /*
+  .fifth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  */
   .sixth:hover {
     
     border-radius: 45px;
     cursor: pointer;
   }
-  .seventh {
+  
+  .seventh { 
     display: inline-block;
     padding: 0.625rem 1.5rem;
     border: 1px solid #3182ce;

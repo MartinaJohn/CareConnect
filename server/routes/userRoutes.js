@@ -83,4 +83,15 @@ router.post("/logout", function (req, res, next) {
   });
 });
 
+//new 
+router.post('/patient-details', async(req, res)=> {
+  try {
+    const {name, description, price, category, images: pictures} = req.body;
+    const detail = await User.create({name, description, price, category, pictures});
+    const details = await User.find();
+    res.status(201).json(products);
+  } catch (e) {
+    res.status(400).send(e.message);
+  }
+})
 module.exports = router;

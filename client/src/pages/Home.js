@@ -22,7 +22,7 @@ const Home = () => {
         
         <div className="fifth">
         <a href='/login'>
-        <button type='button' className="sixth" >Login</button>
+        <button type='button' className="sixth" style={{color:"#3182ce"}}>Login</button>
         </a>
          {/* <button type='button' className="seventh">Upload Details</button> */}
         
