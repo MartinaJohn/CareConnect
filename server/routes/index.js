@@ -14,9 +14,9 @@ const User = require("../models/userModel");
 //     //res.render('details'); // Render the details page if authenticated
 //     res.send("Details page")
 // });
-router.get("/details", (req, res) => {
-  res.send("login page");
-});
+// router.get("/details", (req, res) => {
+//   res.send("login page");
+// });
 
 router.post("/details", ensureAuthenticated, async(req,res)=>{
   const user=req.user;
@@ -31,6 +31,6 @@ router.post("/details", ensureAuthenticated, async(req,res)=>{
     },
     { new: true }
   );
-  res.send(update, user);
+  res.status(200).send(update, user);
 })
 module.exports = router

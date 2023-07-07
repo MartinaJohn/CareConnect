@@ -49,9 +49,9 @@ router.post("/register", async (req, res) => {
 
 });
 
-router.get("/login", (req, res) => {
-  res.send("login page");
-});
+// router.get("/login", (req, res) => {
+//   res.send("login page");
+// });
 
 
 router.post('/login', (req, res, next) => {
