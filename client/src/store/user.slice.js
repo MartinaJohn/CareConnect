@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import axios from 'axios'
 
 export const userSlice = createSlice({
   name: "user",
@@ -21,8 +22,11 @@ export const userSlice = createSlice({
       state.user = null;
       state.isLoggedIn = false;
     },
+   
   },
 });
 
-export const { login, update, logout } = userSlice.actions;
+export const { login, update, logout} = userSlice.actions;
+
+
 export default userSlice.reducer;

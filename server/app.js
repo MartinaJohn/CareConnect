@@ -6,7 +6,7 @@ const cors = require("cors")
 const dotenv = require("dotenv")
 const connectDatabase = require("./config/database")
 const PORT = process.env.PORT || 4000;
-   
+    
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));

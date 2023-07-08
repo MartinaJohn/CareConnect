@@ -11,6 +11,7 @@ import store from "./store";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
+import Details from './pages/Details';
 
 const persistor = persistStore(store);
 
@@ -28,12 +29,13 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path='/details' element={<PatientDetails />}/>
+              <Route path="/test" element={<Details />}/>
             </Routes>
           </QueryClientProvider>
         </PersistGate>
       </Provider>
     </Router>
-  );
+  ); 
 }
 
 export default App;

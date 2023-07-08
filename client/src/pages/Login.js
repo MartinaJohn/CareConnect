@@ -41,7 +41,7 @@ export default function Login(){
       message.success("Successfully Logged In!");
       console.log(data);
       dispatch(login(data));
-      navigate("/details", { replace: true });
+      navigate("/test", { replace: true });
     } catch (error) {
       console.error('An error occurred during login:', error);
      // message.error('An error occurred during login');

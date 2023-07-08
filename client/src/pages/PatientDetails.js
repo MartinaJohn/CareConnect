@@ -41,8 +41,19 @@ const normFile = (e) => {
 
 const PatientDetails = () => {
   const[ipfsUrl, setIpfsUrl]=useState('')
+  // const profileData = JSON.parse(localStorage.getItem('user._id'))
+  // var jsonString = localStorage.getItem('user');
+
+  // console.log(jsonString)
+  // var jsonObject = JSON.parse(jsonString);
+  const user  = useSelector((state)=>state.user)
+  // console.log(user)
+
+  // var name = jsonObject.name;
+  // var email = jsonObject.email;
   // const user=useSelector(state=>state.user)
   const [detailsForm, setDetailsForm] = useState({
+    
     dob: "",
     gender: "",
     maritalstatus: "",
@@ -62,6 +73,9 @@ const PatientDetails = () => {
   //function to submit details
   const SubmitDetails = async (e) => {
     
+    // const name = profileData.name;
+    // const email = profileData.email;
+    // const userId = profileData._id;
     const {
       dob,
       gender,
@@ -69,45 +83,45 @@ const PatientDetails = () => {
       address,
       state,
       phone,
+      emergencyContact,
       zip,
       pcp,
       insurancename,
       validity,
       insurancetype,
       relation,
-      ipfsUrl,
+      // ipfsUrl,
       scanneddocu,
     } = detailsForm;
     e.preventDefault();
     try {
-      //add the url for the backend route
-      console.log(address);
-      console.log(gender);
-      console.log(phone);
-      console.log(ipfsUrl);
-      //WORKS
-      // let result = await fetch(``, {
-      //   method: "post",
-      //   body: JSON.stringify({ dob,gender,maritalstatus,address,state,phone,zip,pcp,insurancename,validity,insurancetype,relation, }),
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //     'Accept': 'application/json'
-      //   },
-      // })
-      // result = await result.json();
-      // if (result) {
-      //   message.success("Submitted successfully")
-      //   window.location('/')
-      // } else {
-      //   message.error("Something went wrong");
-      // }
+      // WORKS
+      let result = await fetch('http://localhost:4000/details', {
+        method: "POST",
+        body: JSON.stringify({dob,gender,address,state,zip,phone,emergencyContact,scanneddocu }),
+        headers: {
+          "Content-Type": "application/json",
+          'Accept': 'application/json'
+        },
+      })
+      result = await result.json();
+      
+      if (result) {
+        message.success("Submitted successfully")
+        window.location('/')
+      } else {
+        message.error("Something went wrong");
+      }
     } catch (e) {
-      console.log(e);
+      console.log(e.message);
+      
     }
   };
 
   const handleInput = (e) => {
+    
     setDetailsForm({ ...detailsForm, [e.target.name]: e.target.value });
+   
   };
 
 
@@ -165,11 +179,11 @@ const PatientDetails = () => {
       </Form.Item> */}
 
           <Form.Item label="Name" className="first" required="true">
-            <Input name="name" onChange={handleInput} value="name" readOnly/>
+            <Input name="name" onChange={handleInput} value={user.name} readOnly/>
           </Form.Item>
 
           <Form.Item label="Email" className="first" required="true">
-            <Input type="email" name="email" onChange={handleInput} />
+            <Input type="email" value={user.email} onChange={handleInput} readOnly/>
           </Form.Item>
 
           <Form.Item label="Date of Birth" required="true">
@@ -204,16 +218,13 @@ const PatientDetails = () => {
             <Input type="number" name="zip" onChange={handleInput} />
           </Form.Item>
 
-          <Form.Item label="Phone" className="first" required="true">
-            <Input type="number" name="phone" onChange={handleInput} />
-          </Form.Item>
-
+          
           <Form.Item
             label="Emergency Contact"
             className="first"
             required="true"
           >
-            <Input type="tel" name="contact" onChange={handleInput} />
+            <Input type="tel" name="emergencyContact" onChange={handleInput} />
           </Form.Item>
           {/* 
       <Form.Item label="Do you have a PCP- Primary Care Physician">
