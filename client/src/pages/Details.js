@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { useMutation } from "react-query";
-import { updateUserDetails } from '../services/auth.service';
+import { PDetails } from '../services/auth.service';
 
 
 import { Form, Input, Button, message } from 'antd';
@@ -60,7 +60,7 @@ function Details() {
   //     console.log(error.response); // Log the entire response object
   //   },
   // });
-  const finishMutation = useMutation(updateUserDetails, {
+  const finishMutation = useMutation(PDetails, {
     onSuccess: (data) => {
       message.success("Successfully Registered!");
       console.log(data);
@@ -88,7 +88,7 @@ function Details() {
       // dispatch(update(data));
       // navigate("/", { replace: true });
     } catch (error) {
-      console.error('An error occurred during details:', error);
+      console.error('An error occurred during details:', error.message);
      // message.error('An error occurred during login');
     }
   };

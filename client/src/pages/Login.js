@@ -36,7 +36,7 @@ export default function Login(){
       const data = {
         email: values.email,
         password: values.password,
-      };
+      }; //d50efa1
       await finishMutation.mutateAsync(data);
       message.success("Successfully Logged In!");
       console.log(data);

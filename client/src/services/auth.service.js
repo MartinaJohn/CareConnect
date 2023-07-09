@@ -17,7 +17,7 @@ export const SignOut = async (body) => {
 };
 
 // create redux action and reducer
-export const updateUserDetails=async(body)=>{
+export const PDetails=async(body)=>{
   
   const response=await axios.post(`${BACKEND_URL}/details`,body)
   console.log("is called "+response.data)

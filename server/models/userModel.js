@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema(
         },
         dateOfBirth: {
             type: Date,
-            required: true
+            // required: true
         },
         gender: {
             type: String,
@@ -30,23 +30,23 @@ const userSchema = new mongoose.Schema(
         },
         address: {
             type: String,
-            required: true,
+            // required: true,
         },
         state: {
             type: String,
-            required: true
+            // required: true
         },
         zip: {
             type: Number,
-            required: true,
+            // required: true,
         },
         phone: {
             type: Number,
-            required: true
+            // required: true
         },
         emergencyContact: {
             type: Number,
-            required: true
+            // required: true
         },
         image: {
             type: String
